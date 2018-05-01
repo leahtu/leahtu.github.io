@@ -15,11 +15,11 @@ nav ul li {
 }
 a {
     text-decoration: none;
-    color: #E6E6FA;
+    color: #FFFFFF;
 }
 a:hover {
     text-decoration: underline;
-    color: #bc8f8f;
+    color: #A9A9A9;
 }
 h1 {
     font-size: 3em;

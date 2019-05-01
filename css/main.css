@@ -32,16 +32,10 @@ h1 {
     color: #FFFFFF;
 }
 
-h3 {
+h3, h4 {
     text-align: center;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: #FFFFFF;
-}
-
-h4 {
-    text-align: center;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: #f2f2f2;
 }
 
 p {

@@ -4,6 +4,12 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  # Triggered by the garden-notes repo whenever notes change
+  repository_dispatch:
+    types: [notes-updated]
+  # Safety net so notes still publish even without the instant trigger
+  schedule:
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: read
@@ -28,6 +34,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Fetch garden notes
+        run: |
+          rm -rf quartz/content
+          git clone https://github.com/leahtu/garden-notes.git quartz/content
 
       - name: Build Quartz garden
         working-directory: quartz

@@ -5,6 +5,9 @@ quartz/public/
 quartz/.quartz-cache/
 _site/
 
+# garden notes are sourced from the garden-notes repo at build time
+quartz/content/
+
 # local preview / OS
 .preview-server*.py
 .DS_Store

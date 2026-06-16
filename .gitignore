@@ -1,0 +1,10 @@
+# dependencies & build output
+node_modules/
+quartz/node_modules/
+quartz/public/
+quartz/.quartz-cache/
+_site/
+
+# local preview / OS
+.preview-server*.py
+.DS_Store

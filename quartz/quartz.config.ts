@@ -21,7 +21,7 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Syne",
+        header: "Fraunces",
         body: "Inter",
         code: "DM Mono",
       },

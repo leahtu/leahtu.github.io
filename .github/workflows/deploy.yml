@@ -46,16 +46,17 @@ jobs:
           npm ci
           npx quartz build
 
+      - name: Build front site (Next.js static export)
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
       - name: Assemble site (front site at /, garden at /garden)
         run: |
+          rm -rf _site
           mkdir -p _site
-          rsync -a \
-            --exclude='quartz' \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='_site' \
-            --exclude='node_modules' \
-            ./ _site/
+          cp -r web/out/. _site/
           mkdir -p _site/garden
           cp -r quartz/public/. _site/garden/
 

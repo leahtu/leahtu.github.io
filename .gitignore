@@ -5,6 +5,11 @@ quartz/public/
 quartz/.quartz-cache/
 _site/
 
+# Next.js front site build artifacts
+web/node_modules/
+web/.next/
+web/out/
+
 # garden notes are sourced from the garden-notes repo at build time
 quartz/content/
 

@@ -4,7 +4,7 @@
    =========================================================== */
 
 :root {
-  --bg: #f7f7fb;
+  --bg: #f7efdf;
   --ink: #1a1a2e;
   --ink-soft: #5a5a78;
   --accent: #c01f6b;
@@ -168,7 +168,10 @@ a { color: var(--accent); text-decoration: none; }
   z-index: 2;
   background: var(--bg);
 }
-.content--home { margin-top: 100vh; }
+.content--home {
+  margin-top: 100vh;
+  background: var(--bg);
+}
 .content--page { padding-top: 80px; }
 
 .section { padding: 14vh 0; }
@@ -290,9 +293,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: linear-gradient(155deg, #58124a 0%, #88205f 34%, #b82f7a 70%, #832060 100%);
+  background: var(--bg);
 }
-.subpage { color: #fff; }
+.subpage { color: var(--ink); }
 .subpage .content { background: transparent; }
 .subpage::before {
   content: "";
@@ -301,7 +304,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
   height: 68px;
   z-index: 99;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(45, 8, 32, 0.62) 0%, rgba(45, 8, 32, 0.32) 55%, transparent 100%);
+  background: linear-gradient(to bottom, rgba(247, 239, 223, 0.72) 0%, rgba(247, 239, 223, 0.4) 55%, transparent 100%);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   opacity: 0;
@@ -309,27 +312,46 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 }
 .subpage.scrolled::before { opacity: 1; }
 .subpage .section { padding: 8px 0 48px; }
-.subpage .topnav a { color: rgba(255, 255, 255, 0.88); }
-.subpage .topnav a:hover { color: #ffd23f; }
-.subpage .topnav a.active { color: #ffd23f; text-decoration-color: #ffd23f; }
-.content--page .eyebrow { font-family: var(--mono); color: #ffd23f; text-transform: lowercase; letter-spacing: 0.1em; }
-.content--page h1 { font-family: var(--syne); color: #fff; letter-spacing: -0.03em; }
-.content--page .tagline { color: rgba(255, 255, 255, 0.82); }
-.content--page p { color: rgba(255, 255, 255, 0.85); }
-.content--page code { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.28); color: #fff; }
-.content--page .btn { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.32); color: #fff; box-shadow: none; backdrop-filter: blur(6px); }
-.content--page .btn:hover { background: rgba(255, 255, 255, 0.24); color: #fff; }
+.subpage .topnav a { color: var(--ink); }
+.subpage .topnav a:hover { color: var(--accent); }
+.subpage .topnav a.active { color: var(--accent); text-decoration-color: var(--accent); }
+.content--page .eyebrow { font-family: var(--mono); color: var(--accent); text-transform: lowercase; letter-spacing: 0.1em; }
+.content--page h1 { font-family: var(--syne); color: var(--ink); letter-spacing: -0.03em; }
+.content--page .tagline { color: var(--ink-soft); }
+.content--page p { color: var(--ink); }
+.content--page code { background: #fff; border-color: var(--line); color: var(--ink); }
+.content--page .btn { background: #fff; border-color: var(--line); color: var(--ink); box-shadow: none; }
+.content--page .btn:hover { background: #fff; color: var(--accent); }
 .content--page .btn-primary { background: #ffd23f; border-color: #ffd23f; color: #4a0f24; }
+.subpage--resume .subpage-bg { background: #cfe6f7; }
+.subpage--resume::before { background: linear-gradient(to bottom, rgba(207, 230, 247, 0.95) 0%, rgba(207, 230, 247, 0.7) 60%, transparent 100%); }
 .content--page .btn-primary:hover { background: #ffd23f; color: #4a0f24; filter: brightness(1.04); }
 .content--page .resume-img { border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 30px 70px rgba(40, 6, 30, 0.45); }
-.subpage .site-footer { border-top-color: rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.72); }
-.subpage .site-footer a { color: rgba(255, 255, 255, 0.88); }
-.subpage .site-footer a:hover { color: #ffd23f; }
+.subpage .site-footer { border-top-color: var(--line); color: var(--ink-soft); }
+.subpage .site-footer a { color: var(--ink-soft); }
+.subpage .site-footer a:hover { color: var(--accent); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .topnav a { padding: 7px 11px; font-size: 0.84rem; }
+  .topnav {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    background: rgba(247, 239, 223, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 5px 6px;
+  }
+  .subpage--resume .topnav { background: rgba(207, 230, 247, 0.88); }
+  .topnav.is-hidden { transform: translateY(-16px); }
+  .topnav ul { gap: 2px 2px; }
+  .topnav a { padding: 7px 8px; font-size: 0.8rem; }
+  /* nav sits in its own pill, so the subpage frosted bar is redundant */
+  .subpage::before { display: none; }
+  .content--page { padding-top: 86px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

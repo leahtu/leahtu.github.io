@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Resume() {
   return (
-    <div className="subpage">
+    <div className="subpage subpage--resume">
       <div className="subpage-bg" aria-hidden="true">
         <span className="orb orb-1" />
         <span className="orb orb-2" />
@@ -24,7 +24,7 @@ export default function Resume() {
           <div className="wrap reveal">
             <div className="page-head">
               <div className="page-actions">
-                <a className="btn btn-primary" href="/resume.pdf" download>
+                <a className="btn" href="/resume.pdf" download>
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"

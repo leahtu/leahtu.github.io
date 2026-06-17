@@ -1,7 +1,6 @@
 /* ===========================================================
-   Leah Tu — personal site
+   Leah Tu — personal site (ported to Next.js)
    Full-screen gradient hero that fades into the about on scroll
-   modern · sleek · whimsical · colourful
    =========================================================== */
 
 :root {
@@ -19,8 +18,11 @@
   --c4: #06b6d4; /* cyan   */
   --c5: #f59e0b; /* amber  */
 
-  --display: "Outfit", "Helvetica Neue", Arial, sans-serif;
-  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /* fonts come from next/font (variables set on <html>) */
+  --display: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
+  --body: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --syne: var(--font-syne), "Helvetica Neue", Arial, sans-serif;
+  --mono: var(--font-dm-mono), ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -65,7 +67,7 @@ a { color: var(--accent); text-decoration: none; }
   display: inline-block;
   padding: 6px 8px;
   color: var(--ink);
-  font-family: "DM Mono", ui-monospace, monospace;
+  font-family: var(--mono);
   font-weight: 500;
   font-size: 0.85rem;
   transition: color 0.2s;
@@ -129,7 +131,7 @@ a { color: var(--accent); text-decoration: none; }
 }
 .hero-inner { position: relative; z-index: 1; }
 .hero h1 {
-  font-family: "Syne", var(--display);
+  font-family: var(--syne);
   font-weight: 800;
   font-size: clamp(3.6rem, 14vw, 9rem);
   line-height: 0.95;
@@ -139,7 +141,7 @@ a { color: var(--accent); text-decoration: none; }
   text-shadow: 0 4px 34px rgba(255, 210, 63, 0.28);
 }
 .hero .role {
-  font-family: "DM Mono", ui-monospace, monospace;
+  font-family: var(--mono);
   font-weight: 400;
   font-size: clamp(0.95rem, 2.8vw, 1.4rem);
   letter-spacing: 0.02em;
@@ -176,7 +178,7 @@ a { color: var(--accent); text-decoration: none; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 .eyebrow {
-  font-family: "DM Mono", ui-monospace, monospace;
+  font-family: var(--mono);
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.2em;
@@ -199,7 +201,7 @@ h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
 .about { text-align: center; padding-bottom: 4vh; }
 .about .wrap { max-width: 880px; }
 .about p:not(.eyebrow), .about .lead {
-  font-family: "DM Mono", ui-monospace, monospace;
+  font-family: var(--mono);
   font-weight: 400;
   font-size: clamp(1.02rem, 2.1vw, 1.25rem);
   line-height: 1.7;
@@ -216,7 +218,7 @@ h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
 /* ---------- Contact ---------- */
 .contact { text-align: center; padding-top: 6vh; }
 .contact-line {
-  font-family: "DM Mono", ui-monospace, monospace;
+  font-family: var(--mono);
   font-weight: 400;
   font-size: clamp(1.02rem, 2.1vw, 1.25rem);
   line-height: 1.7;
@@ -282,7 +284,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .site-footer a { color: var(--ink-soft); }
 .site-footer a:hover { color: var(--accent); }
 
-/* ---------- Subpages: carry the hero aesthetic ---------- */
+/* ---------- Subpages: carry the hero aesthetic (.subpage wrapper) ---------- */
 .subpage-bg {
   position: fixed;
   inset: 0;
@@ -290,9 +292,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
   overflow: hidden;
   background: linear-gradient(155deg, #58124a 0%, #88205f 34%, #b82f7a 70%, #832060 100%);
 }
-body.subpage { color: #fff; }
-body.subpage .content { background: transparent; }
-body.subpage::before {
+.subpage { color: #fff; }
+.subpage .content { background: transparent; }
+.subpage::before {
   content: "";
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -305,14 +307,13 @@ body.subpage::before {
   opacity: 0;
   transition: opacity 0.35s ease;
 }
-body.subpage.scrolled::before { opacity: 1; }
-body.subpage .topnav a { color: #fff; }
-body.subpage .section { padding: 8px 0 48px; }
-body.subpage .topnav a { color: rgba(255, 255, 255, 0.88); }
-body.subpage .topnav a:hover { color: #ffd23f; }
-body.subpage .topnav a.active { color: #ffd23f; text-decoration-color: #ffd23f; }
-.content--page .eyebrow { font-family: "DM Mono", ui-monospace, monospace; color: #ffd23f; text-transform: lowercase; letter-spacing: 0.1em; }
-.content--page h1 { font-family: "Syne", var(--display); color: #fff; letter-spacing: -0.03em; }
+.subpage.scrolled::before { opacity: 1; }
+.subpage .section { padding: 8px 0 48px; }
+.subpage .topnav a { color: rgba(255, 255, 255, 0.88); }
+.subpage .topnav a:hover { color: #ffd23f; }
+.subpage .topnav a.active { color: #ffd23f; text-decoration-color: #ffd23f; }
+.content--page .eyebrow { font-family: var(--mono); color: #ffd23f; text-transform: lowercase; letter-spacing: 0.1em; }
+.content--page h1 { font-family: var(--syne); color: #fff; letter-spacing: -0.03em; }
 .content--page .tagline { color: rgba(255, 255, 255, 0.82); }
 .content--page p { color: rgba(255, 255, 255, 0.85); }
 .content--page code { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.28); color: #fff; }
@@ -321,9 +322,9 @@ body.subpage .topnav a.active { color: #ffd23f; text-decoration-color: #ffd23f; 
 .content--page .btn-primary { background: #ffd23f; border-color: #ffd23f; color: #4a0f24; }
 .content--page .btn-primary:hover { background: #ffd23f; color: #4a0f24; filter: brightness(1.04); }
 .content--page .resume-img { border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 30px 70px rgba(40, 6, 30, 0.45); }
-body.subpage .site-footer { border-top-color: rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.72); }
-body.subpage .site-footer a { color: rgba(255, 255, 255, 0.88); }
-body.subpage .site-footer a:hover { color: #ffd23f; }
+.subpage .site-footer { border-top-color: rgba(255, 255, 255, 0.22); color: rgba(255, 255, 255, 0.72); }
+.subpage .site-footer a { color: rgba(255, 255, 255, 0.88); }
+.subpage .site-footer a:hover { color: #ffd23f; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 560px) {

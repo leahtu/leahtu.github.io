@@ -325,7 +325,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; backgroun
 .content--page .btn-primary { background: #ffd23f; border-color: #ffd23f; color: #4a0f24; }
 .subpage--resume .subpage-bg { background: #cfe6f7; }
 body:has(.subpage--resume) { background: #cfe6f7; }
-body:has(.content--home) { background: linear-gradient(to bottom, #58124a 0, #58124a 100vh, var(--bg) 100vh); }
+body:has(.content--home) { background: #58124a; }
 .subpage--resume::before { background: linear-gradient(to bottom, rgba(207, 230, 247, 0.95) 0%, rgba(207, 230, 247, 0.7) 60%, transparent 100%); }
 .content--page .btn-primary:hover { background: #ffd23f; color: #4a0f24; filter: brightness(1.04); }
 .content--page .resume-img { border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 30px 70px rgba(40, 6, 30, 0.45); }

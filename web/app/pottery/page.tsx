@@ -24,7 +24,7 @@ export default function Pottery() {
         <section className="section">
           <div className="wrap reveal">
             <p style={{ textAlign: "center" }}>
-              A few pieces from the studio. Follow along on{" "}
+              A few pieces from the studio. Follow along{" "}
               <a href="https://www.instagram.com/leahceramics" target="_blank" rel="noopener">
                 @leahceramics
               </a>

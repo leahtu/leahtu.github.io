@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "../components/Nav";
+import InstagramEmbeds from "../components/InstagramEmbeds";
 
 export const metadata: Metadata = {
   title: "Pottery — Leah Tu",
@@ -22,7 +23,14 @@ export default function Pottery() {
       <div className="content content--page">
         <section className="section">
           <div className="wrap reveal">
-            <p style={{ textAlign: "center" }}>coming soon.</p>
+            <p style={{ textAlign: "center" }}>
+              A few pieces from the studio. Follow along on{" "}
+              <a href="https://www.instagram.com/leahceramics" target="_blank" rel="noopener">
+                @leahceramics
+              </a>
+              .
+            </p>
+            <InstagramEmbeds />
           </div>
         </section>
 

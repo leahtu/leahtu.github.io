@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <div className="hero-inner">
           <h1>Leah Tu</h1>
-          <p className="role">a life of making</p>
+          <p className="role">product manager · maker</p>
         </div>
         <div className="scroll-cue" aria-hidden="true">
           <svg
@@ -37,7 +37,7 @@ export default function Home() {
             <p className="eyebrow">about</p>
             <p className="lead">
               Product manager at Microsoft and ceramic artist based in Seattle. I like
-              creating things with my hands and trying new things.
+              creating with my hands and trying new things.
             </p>
             <p>
               When I&apos;m not working or in the studio, I&apos;m usually running, hiking,

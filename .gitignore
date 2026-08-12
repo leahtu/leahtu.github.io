@@ -5,7 +5,7 @@ quartz/public/
 quartz/.quartz-cache/
 _site/
 
-# Next.js front site build artifacts
+# Legacy front-site artifacts (safe to remove locally after the static migration)
 web/node_modules/
 web/.next/
 web/out/

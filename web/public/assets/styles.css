@@ -1,7 +1,47 @@
 /* ===========================================================
-   Leah Tu — personal site (ported to Next.js)
+   Leah Tu — personal site
    Full-screen gradient hero that fades into the about on scroll
    =========================================================== */
+
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700 800;
+  font-display: swap;
+  src: url("/assets/fonts/syne-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/assets/fonts/outfit-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/dm-mono-400-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/dm-mono-500-latin.woff2") format("woff2");
+}
 
 :root {
   --bg: #f7efdf;
@@ -18,11 +58,10 @@
   --c4: #06b6d4; /* cyan   */
   --c5: #f59e0b; /* amber  */
 
-  /* fonts come from next/font (variables set on <html>) */
-  --display: var(--font-outfit), "Helvetica Neue", Arial, sans-serif;
-  --body: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
-  --syne: var(--font-syne), "Helvetica Neue", Arial, sans-serif;
-  --mono: var(--font-dm-mono), ui-monospace, monospace;
+  --display: "Outfit", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --syne: "Syne", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -39,6 +78,11 @@ body {
 }
 
 a { color: var(--accent); text-decoration: none; }
+a:focus-visible {
+  outline: 3px solid #ffd23f;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
 
 /* ---------- Floating glass nav ---------- */
 .topnav {
@@ -95,7 +139,6 @@ a { color: var(--accent); text-decoration: none; }
   pointer-events: none;
   overflow: hidden;
   background: linear-gradient(155deg, #58124a 0%, #88205f 34%, #b82f7a 70%, #832060 100%);
-  will-change: opacity, transform;
 }
 /* distinct colour orbs that wander around the hero */
 .glows { position: absolute; inset: 0; z-index: 0; }
@@ -105,7 +148,6 @@ a { color: var(--accent); text-decoration: none; }
   filter: blur(64px);
   mix-blend-mode: screen;
   opacity: 0.55;
-  will-change: transform;
 }
 .orb-1 { width: 48vmax; height: 48vmax; top: -14%; left: -10%; background: radial-gradient(circle, #ff4db8 0%, transparent 68%); animation: float-a 17s ease-in-out infinite; }
 .orb-2 { width: 42vmax; height: 42vmax; top: -8%; right: -8%; background: radial-gradient(circle, #c79bff 0%, transparent 68%); animation: float-b 23s ease-in-out infinite; }
@@ -177,8 +219,7 @@ a { color: var(--accent); text-decoration: none; }
 .section { padding: 14vh 0; }
 .wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 28px; }
 
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1); }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
 
 .eyebrow {
   font-family: var(--mono);
@@ -360,6 +401,19 @@ body:has(.subpage--resume) { background: #cfe6f7; }
 }
 .ig-photo:hover img { transform: scale(1.05); }
 
+.page-intro { text-align: center; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 560px) {
   body { font-size: 16px; }
@@ -387,5 +441,5 @@ body:has(.subpage--resume) { background: #cfe6f7; }
   * { scroll-behavior: auto; }
   .orb { animation: none; }
   .scroll-cue { animation: none; }
-  .reveal { transition: none; opacity: 1; transform: none; }
+  .hero { transform: none !important; }
 }

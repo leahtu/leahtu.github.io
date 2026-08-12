@@ -1,5 +1,6 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Static site guidelines
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+- Keep primary content and navigation usable without JavaScript.
+- Use JavaScript only for optional progressive enhancement.
+- Keep images responsive and lazy-load only below-the-fold media.
+- Preserve the `/`, `/resume/`, `/pottery/`, and `/garden/` URLs.

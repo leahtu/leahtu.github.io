@@ -192,16 +192,27 @@ a:focus-visible {
 }
 .scroll-cue {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   z-index: 1;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
   color: rgba(255, 255, 255, 0.72);
+  pointer-events: auto;
+  transform: translateX(-50%);
+}
+.scroll-cue:hover { color: #fff; }
+.scroll-cue svg {
+  display: block;
+  width: 26px;
+  height: 26px;
   animation: bob 1.8s ease-in-out infinite;
 }
-.scroll-cue svg { width: 26px; height: 26px; display: block; }
 @keyframes bob {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, 8px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* ---------- Content (scrolls over hero) ---------- */
@@ -440,6 +451,6 @@ body:has(.subpage--resume) { background: #cfe6f7; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto; }
   .orb { animation: none; }
-  .scroll-cue { animation: none; }
+  .scroll-cue svg { animation: none; }
   .hero { transform: none !important; }
 }
